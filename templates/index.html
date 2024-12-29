@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>College Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="static/assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="static/assets/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="static/assets/vendors/jvectormap/jquery-jvectormap.css">
+  <link rel="stylesheet" href="static/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="static/assets/vendors/owl-carousel-2/owl.carousel.min.css">
+  <link rel="stylesheet" href="static/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+  <link rel="stylesheet" href="static/assets/vendors/select2/select2.min.css">
+  <link rel="stylesheet" href="static/assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="static/assets/css/style.css">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="static/assets/images/favicon.png" />
+  <style>
+    /* Dark Theme for Search Results Container */
+.search-results-container {
+  position: absolute;
+  top: 70px; /* Adjust according to your design */
+  left: 0;
+  width: calc(100% - 20px); /* Adjust the width and margin according to your design */
+  max-height: 300px; /* Adjust the max height if needed */
+  overflow-y: auto;
+  background-color: #333; /* Dark background color */
+  color: #fff; /* Light text color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 100;
+}
+
+/* Dark Theme for Search Result Items */
+.search-result {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: #444; /* Darker background color */
+}
+
+.search-result:hover {
+  background-color: #555; /* Darker hover background color */
+}
+
+.search-result i {
+  margin-right: 10px;
+}
+
+.search-result span {
+  font-size: 16px;
+}
+
+/* Optional: Add hover effect for better user experience */
+.search-result:hover {
+  background-color: #666; /* Darker hover background color */
+}
+
+  </style>
+</head>
+
+<body class="">
+  <div class="container-scroller">
+    <!-- partial:partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+        <a class="sidebar-brand brand-logo"><img src="static/assets/images/logo.svg" alt="logo" /></a>
+        <a class="sidebar-brand brand-logo-mini"><img src="static/assets/images/logo-mini.svg" alt="logo" /></a>
+      </div>
+      <ul class="nav">
+        <li class="nav-item nav-category">
+          <span class="nav-link">Navigation</span>
+        </li>
+        <li class="nav-item menu-items active">
+          <a class="nav-link" href="#" onclick="loadContent('static/pages/dash/dash.html','main_body')">
+            <span class="menu-icon">
+              <i class="mdi mdi-speedometer"></i>
+            </span>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-library-books"></i>
+            </span>
+            <span class="menu-title">Library</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="#"
+                  onclick="loadContent('static/pages/library/libstock.html', 'main_body')">Borrow/Return</a></li>
+              <li class="nav-item"> <a class="nav-link" href="#"
+                  onclick="loadContent('static/pages/library/books.html','main_body')">Add/Remove Books</a></li>
+              <li class="nav-item"> <a class="nav-link" href="#"
+                  onclick="loadContent('static/pages/library/members.html','main_body')">Add/Remove Members</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" href="#" onclick="loadContent('static/pages/attendance/att.html','main_body')">
+            <span class="menu-icon">
+              <i class="mdi mdi-chart-bar"></i>
+            </span>
+            <span class="menu-title">Attendance</span>
+          </a>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" href="#" id="complaint-control-link" onclick="loadConten('static/pages/CControl/complaint_control.html','main_body')">
+            <span class="menu-icon">
+              <i class="mdi mdi-alert"></i>
+            </span>
+            <span class="menu-title">Complaint</span>
+          </a>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" href="#" onclick="loadContent('static/pages/news/news.html','main_body')">
+            <span class="menu-icon">
+              <i class="mdi mdi-newspaper"></i>
+            </span>
+            <span class="menu-title">News</span>
+          </a>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" href="#" onclick="loadContent('static/pages/reports/reports.html','main_body')">
+            <span class="menu-icon">
+              <i class=" mdi mdi-file-chart"></i>
+            </span>
+            <span class="menu-title">Reports</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="static/assets/images/logo-mini.svg"
+              alt="logo" /></a>
+        </div>
+        <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+          <ul class="navbar-nav w-100">
+            <li class="nav-item w-100">
+              <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                <input type="text" class="form-control" placeholder="Search for pages">
+              </form>
+              <div id="search-results" class="search-results-container" style="display: none;"></div>
+            </li>
+          </ul>
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item nav-settings d-none d-lg-block">
+              <a class="nav-link" href="#">
+                <i class="mdi mdi-view-grid"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown border-left">
+              <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown"
+                aria-expanded="false">
+                <i class="mdi mdi-star-circle"></i>
+                <span class="count bg-success"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                aria-labelledby="messageDropdown">
+                <h6 class="p-3 mb-0">Contributors</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1">Shaurya</p>
+                    <p class="text-muted mb-0"> chatur </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1">Sridhar</p>
+                    <p class="text-muted mb-0"> fist fighter </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1">Swyam</p>
+                    <p class="text-muted mb-0"> Emerging Rapper </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <p class="p-3 mb-0 text-center"></p>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                <div class="navbar-profile">
+                  <img class="img-xs rounded-circle" src="static/assets/images/faces/active.png" alt="">
+                  <p id="username-container" class="mb-0 d-none d-sm-block navbar-profile-name">Admin</p>
+                  <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                </div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                aria-labelledby="profileDropdown">
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item" href="/logout">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-logout text-danger"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1">Log out</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+              </div>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
+            <span class="mdi mdi-format-line-spacing"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div id="main_body" class="content-wrapper ">
+          <script>
+            window.onload = function () {
+              loadContent('static/pages/dash/dash.html', 'main_body');
+            };
+          </script>
+          
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="static/assets/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="static/assets/vendors/chart.js/Chart.min.js"></script>
+  <script src="static/assets/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="static/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+  <script src="static/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="static/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+  <script src="static/assets/vendors/select2/select2.min.js"></script>
+  <script src="static/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="static/assets/js/off-canvas.js"></script>
+  <script src="static/assets/js/hoverable-collapse.js"></script>
+  <script src="static/assets/js/misc.js"></script>
+  <script src="static/assets/js/settings.js"></script>
+  <script src="static/assets/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="static/assets/js/file-upload.js"></script>
+  <script src="static/assets/js/typeahead.js"></script>
+  <script src="static/assets/js/select2.js"></script>
+  <script src="static/assets/js/chart.js"></script>
+  <script src="static/assets/js/dashboard.js"></script>
+  <script src="static/assets/js/navbar.js"></script>
+  <script src="static/js/username.js"></script>
+  <script src="static/js/query.js"></script>
+  <script src="static/js/transmission.js"></script>
+  <!-- End custom js for this page -->
+  <!-- DataTables-->
+  <link href="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/af-2.7.0/b-3.0.1/b-colvis-3.0.1/b-html5-3.0.1/b-print-3.0.1/cr-2.0.0/date-1.5.2/fc-5.0.0/fh-4.0.1/kt-2.12.0/r-3.0.1/rg-1.5.0/rr-1.5.0/sc-2.4.1/sb-1.7.0/sp-2.3.0/sl-2.0.0/sr-1.4.0/datatables.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+  <script src="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/af-2.7.0/b-3.0.1/b-colvis-3.0.1/b-html5-3.0.1/b-print-3.0.1/cr-2.0.0/date-1.5.2/fc-5.0.0/fh-4.0.1/kt-2.12.0/r-3.0.1/rg-1.5.0/rr-1.5.0/sc-2.4.1/sb-1.7.0/sp-2.3.0/sl-2.0.0/sr-1.4.0/datatables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+
+</body>
+
+</html>
