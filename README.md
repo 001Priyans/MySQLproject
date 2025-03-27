@@ -1,44 +1,44 @@
-<!--- BEGIN: FILEPATH: /home/dexter/Desktop/SQLproject/README.md -->
+# MySQL Project
 
----
+A web-based application featuring MySQL database integration with a modern frontend.
 
-sample student login credentials
-username : student1
-password : student123
+## 📋 Overview
 
-<br><br>
-<a href="http://172.16.0.10:2026">(IIIT G Intranet)</a>
+This project combines a responsive web interface with MySQL database functionality. Built using HTML, CSS, JavaScript and Python, it demonstrates database management through a user-friendly web application.
 
+## 🛠️ Technologies Used
 
-## College Management System
+- **Frontend**: 
+  - HTML (27%)
+  - CSS (37.7%) 
+  - SCSS (7.5%)
+  - JavaScript (26.2%)
+- **Backend**: 
+  - Python (1.4%)
+- **Database**: 
+  - MySQL
+- **Scripting**:
+  - Shell (0.2%)
 
-The College Management System is a database management system project that aims to streamline various administrative tasks in a college or educational institution. It provides a centralized platform for managing student records, faculty information, course details, and other relevant data.
+## 🌟 Features
 
-### Technologies Used
+- Interactive web interface
+- Database management functionality
+- Responsive design
+- Data visualization
+- User authentication system
 
-- Database: MySQL
-- Backend: Flask App
-- Frontend: HTML, CSS, JavaScript
+## 🚀 Getting Started
 
----
+### Prerequisites
 
+- MySQL server installed and running
+- Python 3.x
+- Web browser
 
-USAGE:
+### Installation
 
-### for first time , run this 
-
-```bash
-chmod +x run.sh
-./run.sh
-```
-### else run this
-
-```bash
-python app_sessions.py
-#or
-gunicorn -w 4 -b 0.0.0.0:5000 app_sessions:app
-```
-### Note: If you get comfortable with codes, try renaming the file to app.py
----
-
-<!--- END: FILEPATH -->
+1. Clone the repository
+   ```bash
+   git clone https://github.com/001Priyans/MySQLproject.git
+   cd MySQLproject
